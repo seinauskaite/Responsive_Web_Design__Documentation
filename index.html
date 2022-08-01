@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./global.css" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <!---------------------NAVIGAVIJA-------------------->
+    <nav class="desktop-nav" id="navbar">
+      <header>
+        <h1>Code doc for JS</h1>
+      </header>
+      <ul>
+        <li>
+          <a class="nav-link" href="#Why_to?">Why to?</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Forms?">Forms?</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#First_steps">First steps</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#More_tags">More tags</a>
+        </li>
+        <li>
+          <a class="nav-link" href="#Generating">Generating</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!----------------------------------NAV-MOBILE-------------------------- -->
+    <nav class="mobile-nav" id="navbar">
+      <header>
+        <h1>Code doc for JS</h1>
+      </header>
+
+      <div class="dropdown">
+        <button class="dropbtn">Select</button>
+        <div class="dropdown-content">
+          <ul>
+            <li>
+              <a class="nav-link" href="#Why_to?">Why to?</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Forms?">Forms?</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#First_steps">First steps</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#More_tags">More tags</a>
+            </li>
+            <li>
+              <a class="nav-link" href="#Generating">Generating</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!---------------------1st-------------------->
+    <main id="main-doc">
+      <section class="main-section" id="Why_to?">
+        <header>
+          <h2>Why to?</h2>
+        </header>
+        <p>
+          Suppose you wrote a couple of functions for making an HTML table with
+          JavaScript. You could use those function right now, or pass them to
+          another developer.
+        </p>
+        <p>
+          Everything is clear in your mind the moment you write the code, yet a
+          month later you don't remember how to use function A or function B
+          anymore. And so your colleagues. How function A is supposed to be
+          called? What parameters it takes? And what shape should the parameters
+          have?
+        </p>
+        <p>
+          Code documentation dissolves those doubts, helping you and other
+          developers to understand how to use the software you wrote.
+        </p>
+      </section>
+      <!-- ---------------------2nd-------------------- -->
+      <section class="main-section" id="Forms?">
+        <header>
+          <h2>Forms?</h2>
+        </header>
+        <p>
+          There are many ways for documenting a piece of code. For example you
+          can write:
+        </p>
+        <ul>
+          <li>howtos guides for using your code</li>
+          <li>a nice README for the repo</li>
+          <li>code documentation in the source</li>
+        </ul>
+        <p>
+          Tutorials are nice because you can teach things to thousands of
+          people, but they get outdated soon for many reasons: lack of time,
+          breaking changes to the code.
+        </p>
+      </section>
+
+      <!-- ---------------------3rd-------------------- -->
+      <section class="main-section" id="First_steps">
+        <header>
+          <h2>First steps</h2>
+        </header>
+        <p>
+          JSDoc is a nice "language" for adding documentation to JavaScript.
+          Consider the following function:
+        </p>
+        <code
+          >function generateTableHead(table, data) { const thead =
+          table.createTHead(); const row = thead.insertRow(); for (const i of
+          data) { const th = document.createElement("th"); const text =
+          document.createTextNode(i); th.appendChild(text); row.appendChild(th);
+          } }</code
+        >
+        <p>
+          For each parameter you can describe:
+        </p>
+        <ul>
+          <li>its type, i.e. string, number, HTMLTableElement and so on</li>
+          <li>its name</li>
+          <li>a description</li>
+        </ul>
+      </section>
+      <!-- ---------------------4th-------------------- -->
+      <section class="main-section" id="More_tags">
+        <header>
+          <h2>More tags</h2>
+        </header>
+        <p>
+          JSDoc has a lot more tags. The "author" annotation for example is
+          useful when you need to blame someone's else code. Another useful tag
+          is "return" (or "returns") for describing the return value of a
+          function. Here's a function which returns nothing (i.e. a function
+          whose job is printing to the console or creating an HTML element):
+        </p>
+        <code
+          >/** * A silly logger function * @param {string} message * @return
+          {void} Nothing */ function sillyLogger(message) { console.log(`Don't
+          use in production ${message}`); }</code
+        >
+      </section>
+      <!-- ---------------------5th-------------------- -->
+      <section class="main-section" id="Generating">
+        <header>
+          <h2>Generating</h2>
+        </header>
+        <p>
+          JSDoc has a binary which can be installed in your JavaScript project.
+          To make a bit of practice create a project in a new folder:
+        </p>
+        <code>mkdir jsdoc-tutorial && cd $_</code>
+
+        <p>Initialize with:</p>
+        <code>npm init -y </code>
+        <p>And install JSDoc:</p>
+        <code>npm i jsdoc --save-dev </code>
+        <p>Finally run the JSDoc binary against the file:</p>
+        <code>node_modules/jsdoc/jsdoc.js table.js</code>
+        <p>
+          If everything goes well you'll see a new folder named out in your
+          project folder. Inside this folder open up index.html, click on
+          "generateTableHead" and check out the page:
+        </p>
+        <img
+          src="https://www.valentinog.com/blog/static/23edd6543ea83882ccbe14080ef7d230/43fbc/jsdoc-tutorial-javascript.png"
+        />
+      </section>
+    </main>
+  </body>
+</html>
